@@ -1,0 +1,33 @@
+<input type="text" name = "search" ng-model="searchProduct">
+
+<form role="form" novalidate>
+    <legend>Aggiungi prodotto</legend>
+
+    <div class="form-group">
+        <label for="">Nome prodotto</label>
+        <input type="text" class="form-control" id="prodname" 
+        placeholder="Product Name" ng-model="product.name" required>
+    </div>
+    <div class="form-group">
+        <label for="">Prezzo prodotto</label>
+        <input type="text" class="form-control" id="prodprice" placeholder="Product Price"
+        ng-model="product.price" required>
+    </div>
+        <button type="submit" class="btn btn-primary" 
+        ng-click="addPoduct(product)">Add product
+        </button>
+
+</form>
+<br/><br/>
+
+<div class="row">
+    <div ng-show="!productList.lenght">
+        Non hai aggiunto prodotti, aggiungine
+    </div>
+    <div ng-repeat="prod in productLins | filter:searchProduct">
+        <b>Product name:</b><span>
+            {{prod.name}}</span>
+        <b>Product price:</b><span>
+            {{prod.price}}</span>
+    </div>
+</div>
